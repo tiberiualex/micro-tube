@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/tiberiualex/micro-tube/issues"
   },
-  "homepage": "https://github.com/tiberiualex/micro-tube#readme"
+  "homepage": "https://github.com/tiberiualex/micro-tube#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
