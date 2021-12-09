@@ -1,5 +1,6 @@
 const express = require('express');
 const fs = require('fs');
+const path = require('path');
 
 const app = express();
 
@@ -10,11 +11,11 @@ if (!process.env.PORT) {
 const port = process.env.PORT;
 
 app.get('/video', (req, res) => {
-  const path = './../videos/SampleVideo_1280x720_1mb.mp4';
+  const videoPath =  path.join('./videos', 'SampleVideo_1280x720_1mb.mp4');
 
-  fs.stat(path, (err, stats) => {
+  fs.stat(videoPath, (err, stats) => {
     if (err) {
-      console.error('An error occurred');
+      console.error(err);
       res.sendStatus(500);
       return;
     }
@@ -24,7 +25,7 @@ app.get('/video', (req, res) => {
       'Content-Type': 'video/mp4',
     });
 
-    fs.createReadStream(path).pipe(res);
+    fs.createReadStream(videoPath).pipe(res);
   });
 });
 
