@@ -49,7 +49,7 @@ app.get("/video", (req, res) => {
   
   const blobService = createBlobService();
 
-  const containerName = "videos";
+  const containerName = "microtube";
   blobService.getBlobProperties(containerName, videoPath, (err, properties) => { // Sends a HTTP HEAD request to retreive video size.
     if (err) {
       console.error(`Error occurred getting properties for video ${containerName}/${videoPath}.`);
