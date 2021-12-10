@@ -4,11 +4,11 @@ const path = require('path');
 
 const app = express();
 
-// if (!process.env.PORT) {
-//   throw new Error('Please specify the port number for the HTTP server with the env variable PORT');
-// }
+if (!process.env.PORT) {
+  throw new Error('Please specify the port number for the HTTP server with the env variable PORT');
+}
 
-const port = 3000;
+const port = process.env.PORT;
 
 app.get('/video', (req, res) => {
   const videoPath =  path.join('./videos', 'SampleVideo_1280x720_1mb.mp4');
