@@ -39,3 +39,21 @@ services:
     depends_on:
       - db
     restart: "no"
+  
+history:
+  image: history
+  build:
+    context: ./history
+    dockerfile: Dockerfile-dev
+  container_name: history
+
+  volumes:
+    - /tmp/history/npm-cache:/root/.npm:z # share npm cache from host to container to speed up npm installs
+    - ./history/src:/usr/src/app/src:z    # share source code directly from host to the container
+
+  ports:
+    - "4002:80"
+  environment:
+    - PORT=80
+    - NODE_ENV=development
+  restart: "no"

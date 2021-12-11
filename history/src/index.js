@@ -9,7 +9,7 @@ function startHttpServer() {
     const app = express();
     setupHandlers(app);
 
-    const port = pocess.env.PORT && parseInt(process.env.PORT) || 3000;
+    const port = process.env.PORT && parseInt(process.env.PORT) || 3000;
 
     app.listen(port, () => {
       resolve();
